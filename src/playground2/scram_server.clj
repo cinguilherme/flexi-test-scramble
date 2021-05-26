@@ -1,10 +1,12 @@
 (ns playground2.scram_server
-    (:require [ring.adapter.jetty])
     (:require [ring.util.request :refer :all])
     (:require [ring.middleware.params :refer :all])
     (:require [playground2.scrambler :refer [ scramble? ]])
     (:import [java.io StringReader])
     )
+
+(use 'ring.adapter.jetty)
+(require '[jumblerg.middleware.cors :refer [wrap-cors]])
 
 (require '[ring.middleware.json :refer [wrap-json-response]]
         '[ring.util.response :refer [response]])
@@ -19,6 +21,7 @@
                 :body (str "{str1:" str1 ", str2:" str2 ", isScramblable:" (scramble? str1 str2) "}")
             })))
 
-(use 'ring.adapter.jetty)
 
-(run-jetty scramble-handler {:port 8080 :join? false})
+
+(run-jetty (wrap-cors scramble-handler #".*")
+    {:port 8080 :join? false})

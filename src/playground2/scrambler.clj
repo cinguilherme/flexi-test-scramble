@@ -11,11 +11,6 @@
         0
         (get m symb)))
 
-(defn- get-counter [symb m]
-    (if (nil? (get m symb)) 
-        0
-        (get m symb)))        
-
 (defn- check-enough-symb [symb m1 m2]
     (>= (get-counter symb m1) (get-counter symb m2)))
 

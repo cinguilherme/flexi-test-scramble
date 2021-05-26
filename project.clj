@@ -7,6 +7,7 @@
                 [prismatic/schema "1.1.12"]
                 [medley "1.3.0"]
                 [ring "1.9.3"]
+                [jumblerg/ring-cors "2.0.0"]
                 [ring/ring-json "0.5.1"]
                 [ring/ring-jetty-adapter "1.8.2"]
                 ]
