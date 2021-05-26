@@ -20,8 +20,9 @@ Examples:
 Task 2
 Create a web service that accepts two strings in a request and applies function scramble? from previous task to them.
 
-Task 3
+### Task 3 is done in another repo:
 Create a UI in ClojureScript with two inputs for strings and a scramble button. When the button is fired it should call the API from previous task and display a result.
+- frontend app in clojure-script is available at [FrontEnd](https://github.com/cinguilherme/flexi-fontend-cljs)
 
 Notes
 Please pay attention to tests, code readability and error cases.
