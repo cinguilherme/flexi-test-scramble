@@ -17,8 +17,8 @@
         (let [str1 (get params "str1")  str2 (get params "str2")]
             {
                 :status 200
-                :headers { "content-type" "application/json" }
-                :body (str "{\"str1\":" (apply str str1) ", \"str2\":" (apply str str2) ", \"isScramblable\":" (scramble? str1 str2) "}")
+                :headers { "Content-Type" "application/json" }
+                :body { :isScramblable? (scramble? str1 str2) }
             })))
 
 (run-jetty (wrap-json-response (wrap-cors scramble-handler #".*"))
